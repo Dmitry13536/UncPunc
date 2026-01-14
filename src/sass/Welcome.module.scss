@@ -1,0 +1,25 @@
+@use './Init.scss' as I;
+
+.Welcome {
+    margin-top: 260px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    width: 280px;
+    height: 120px;
+    border-radius: 50px;
+    background-color: I.$color-btn;
+    border: 2px solid I.$color-border-btn;
+
+    &:active {
+        background-color: I.$color-active;
+    }
+
+    .Play {
+        display: flex;
+        margin: auto;
+        color: I.$color-text;
+        font-weight: 900;
+        font-size: 54px;
+    }
+}

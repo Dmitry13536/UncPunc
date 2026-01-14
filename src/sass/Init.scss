@@ -1,0 +1,23 @@
+* {
+    font-family: "Squada One", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+
+    #Init {
+        width: 100vw;
+        height: 100vh;
+        background-image: url(../IMG/bgIMG.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow-x: hidden;
+    }
+}
+
+$color-btn: rgb(114, 235, 114);
+$color-border-btn: rgb(99, 148, 98);
+$color-active: rgb(230, 112, 112);
+$color-text: rgb(235, 235, 235);
