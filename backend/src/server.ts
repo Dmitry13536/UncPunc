@@ -1,0 +1,121 @@
+import Fastify, { type FastifyInstance } from 'fastify'
+import cors from '@fastify/cors'
+import swagger from '@fastify/swagger'
+import swaggerUi from '@fastify/swagger-ui'
+import jwt from '@fastify/jwt'
+
+// import 'dotenv/config'
+
+import userRoutes from './routes/user.js'
+
+// declare module 'pg'
+
+// import { PrismaClient } from '@prisma/client'
+// import { Pool } from 'pg'
+// import { PrismaPg } from '@prisma/adapter-pg'
+
+// declare module 'fastify' {
+//     interface FastifyInstance {
+//         db: PrismaClient,
+//         pool: Pool
+//     }
+// }
+
+// declare module 'fastify' {
+//     interface FastifyInstance {
+//         auth: ( req: FastifyRequest, reply: FastifyReply ) => Promise<void>;
+//         db: PrismaClient;
+//         pool: Pool;
+//     }
+// }
+
+// if (!process.env.DATABASE_URL) {
+//     throw new Error('DATABASE_URL is not set')
+// }
+
+// var pool = new Pool({ connectionString: process.env.DATABASE_URL })
+// var adapter = new PrismaPg(pool)
+// var db = new PrismaClient({adapter})
+
+interface Server {
+    port: number,
+    host: string
+}
+
+var buildServer = async function (cfg: Server): Promise<FastifyInstance> {
+    var fastify = Fastify({
+        logger: {
+            level: 'info',
+            transport: {
+                target: 'pino-pretty',
+                options: {
+                    colorize: true
+                }
+            }
+        }
+    })
+
+    await fastify.register(userRoutes)
+
+    // fastify.decorate('db', db)
+    // fastify.decorate('pool', pool)
+
+    await fastify.register(cors, {
+        origin: true,
+        methods: [ 'GET', 'POST', 'DELETE', 'PUT' ],
+        credentials: true
+    })
+
+    await fastify.register(swagger, {})
+    await fastify.register(swaggerUi, {
+        routePrefix: '/docs'
+    })
+
+    // var secretJwt = process.env.SECRET_JWT
+
+    // if (!secretJwt) {
+    //     throw new Error('Enter SECRET_JWT to lauch server')
+    // }
+
+    // await fastify.register(jwt, {
+    //     secret: secretJwt
+    // })
+   
+    fastify.decorate('auth', async ( req : any, reply : any ) => {
+        try {
+            await req.jwtVerify()
+        } catch (err : any) {
+            reply.send(err.message)
+        }
+    })
+
+    return fastify
+}
+
+var start = async function () {
+    try {
+        var cfg: Server = {
+            port: 5000,
+            host: 'localhost'
+        }
+
+       var server = await buildServer(cfg)
+       await server.listen({ port: cfg.port, host: cfg.host })
+    } catch (e) {
+        console.error(e)
+        process.exit(1)
+    }
+}
+
+// process.on('SIGINT', async () => {
+//     try {
+//         await db.$disconnect()
+//         await pool.end()
+//         process.exit(0)
+//     } catch (e) {
+//         console.error(e)
+//         process.exit(1)
+//     }
+// })
+
+start()
