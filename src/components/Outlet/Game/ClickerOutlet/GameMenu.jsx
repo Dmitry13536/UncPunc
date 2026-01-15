@@ -21,44 +21,48 @@ var GameMenu = () => {
                 Улучшения
             </motion.button>
 
-            <Menu.Root>
-                <Menu.Trigger className={sass.Btn} >
-                    <motion.span className={sass.Span} style={{ width: '100%', height: '100%' }} whileHover={{ scale: 1.3 }} > Уровни </motion.span>
-                </Menu.Trigger>
+            <div className={sass.LevelsDiv} >
+
+                <Menu.Root>
+                    <Menu.Trigger style={{ display: 'flex', justifyContent: 'center'}} >
+                        <span>Уровни</span>
+                    </Menu.Trigger>
 
 
-                <Menu.Portal>
-                    <AnimatePresence>
-                        <Menu.Content asChild style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '12px', transformOrigin: 'top' }} >
-                            <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} exit={{ scaleY: 0 }}>
-                                <Menu.Item asChild>
-                                    <motion.button className={sass.BtnLevel} >
-                                        Пройденные уровни
-                                    </motion.button>
-                                </Menu.Item>
+                    <Menu.Portal>
+                        <AnimatePresence>
+                            <Menu.Content asChild style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '12px', transformOrigin: 'top' }} >
+                                <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} exit={{ scaleY: 0 }}>
+                                    <Menu.Item asChild>
+                                        <motion.button className={sass.BtnLevel} >
+                                            Пройденные уровни
+                                        </motion.button>
+                                    </Menu.Item>
 
-                                <Menu.Item asChild>
-                                    <motion.button className={sass.BtnLevel} >   
-                                        Следующий уровень
-                                    </motion.button>
-                                </Menu.Item>
-                            </motion.div>
-                        </Menu.Content>
-                    </AnimatePresence>
-                </Menu.Portal>
-            </Menu.Root>
+                                    <Menu.Item asChild>
+                                        <motion.button className={sass.BtnLevel} >   
+                                            Следующий уровень
+                                        </motion.button>
+                                    </Menu.Item>
+                                </motion.div>
+                            </Menu.Content>
+                        </AnimatePresence>
+                    </Menu.Portal>
+                </Menu.Root>
 
-            <div 
-                style={{ backgroundColor: 'rgb(85, 85, 85)', height: '48px', width: '240px', display: 'flex', 
-                    marginLeft: 'auto', marginRight: 'auto', borderRadius: '16px',
-                    boxShadow: '2px 2px 2px 2px black'}} 
-            />
+                <div 
+                    style={{ backgroundColor: 'rgb(85, 85, 85)', height: '48px', width: '240px', display: 'flex', 
+                        marginLeft: 'auto', marginRight: 'auto', borderRadius: '16px',
+                        boxShadow: '2px 2px 2px 2px black'}} 
+                />
 
-            <div 
-                style={{ backgroundColor: 'rgb(85, 85, 85)', height: '48px', width: '240px', display: 'flex', 
-                    marginLeft: 'auto', marginRight: 'auto', borderRadius: '16px',
-                    boxShadow: '2px 2px 2px 2px black'}} 
-            />
+                <div 
+                    style={{ backgroundColor: 'rgb(85, 85, 85)', height: '48px', width: '240px', display: 'flex', 
+                        marginLeft: 'auto', marginRight: 'auto', borderRadius: '16px',
+                        boxShadow: '2px 2px 2px 2px black'}} 
+                />
+                
+            </div>
         </>
     )
 }

@@ -25,7 +25,7 @@ var Welcome = () => {
     }
 
     return (
-        <motion.button whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} 
+        <motion.button whileHover={{ scale: 1.3 }} whileTap={{ scale: 0.9 }} 
             onClick={play} initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} className={sass.WelcomeBtn}
         >

@@ -30,6 +30,14 @@
     }   
 }
 
+.LevelsDiv {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .BtnLevel {
 
     &:active{
@@ -37,3 +45,8 @@
         background-color: I.$color-active;
     }
 }
+
+span {
+    margin-top: 12px;
+}
+
