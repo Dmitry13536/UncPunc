@@ -65,3 +65,25 @@ $color-border: rgb(239, 152, 39);
         background-color: $color-active;
     }
 }
+
+@mixin welcome-button-design {
+    background-color: $color-btn;
+    border-radius: 50px;
+    border: 1px solid $color-border-btn;
+    display: flex;
+    justify-content: center;
+    color: $color-text;
+    padding: 30px;
+    display: flex;
+    font-size: 36px;
+    font-weight: 900;
+    height: 120px;
+    width: 280px;
+    justify-self: center;
+    align-self: center;
+
+    &:active{
+        filter: brightness(0.8);
+        background-color: $color-active;
+    }
+}

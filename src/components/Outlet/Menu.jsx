@@ -24,7 +24,6 @@ var Menu = () => {
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={() => {
                         navigate('/clicker', { replace: true })
-                        play()
                     }} className={sass.butt}
                 >
                     Играть
@@ -33,7 +32,6 @@ var Menu = () => {
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={() => {
                         navigate('/settings')    
-                        play()
                     }} className={sass.butt} 
                 >
                     Настройки
@@ -41,7 +39,6 @@ var Menu = () => {
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={()=>{
                         navigate('/')
-                        play()
                     }} className={sass.butt}
                 >
                     Шабашка

@@ -10,7 +10,7 @@ function MusicToggler() {
 
     return (
         <>
-        {isPlaying ? <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={off} onClick={togglePlay} /> : <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={on} onClick={togglePlay} /> }
+            {isPlaying ? <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={off} onClick={togglePlay} /> : <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={on} onClick={togglePlay} /> }
         </>
      );
 }
