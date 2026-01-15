@@ -21,11 +21,13 @@ $color-btn: rgb(114, 235, 114);
 $color-border-btn: rgb(99, 148, 98);
 $color-active: rgb(230, 112, 112);
 $color-text: rgb(235, 235, 235);
+$color-bg: rgb(250, 250, 250);
+$color-border: rgb(239, 152, 39);
 
 @mixin button-desing($color: $color-text, $bckgd-color:$color-btn, $text-size: 54px ){
     background-color: $bckgd-color;
     border-radius: 50px;
-    border: 1px solid black;
+    border: 1px solid $color-border-btn;
     max-width: 280px;
     min-width: 200px;
     max-height: 120px;
@@ -33,18 +35,33 @@ $color-text: rgb(235, 235, 235);
     justify-content: center;
     margin: auto;
     color: $color;
-    font-weight: 900;
-    font-size: 54px;
-    display: flex;
     padding: 30px 50px;
+    font-weight: 900;
+    display: flex;
     font-size: $text-size;
 
-    &:hover{
-        scale: 1.1;
+    &:active{
+        filter: brightness(0.8);
+        background-color: $color-active;
     }
+}
+
+@mixin clickerMenu-button-design {
+    background-color: $color-btn;
+    border-radius: 50px;
+    border: 1px solid $color-border-btn;
+    display: flex;
+    justify-content: center;
+    color: $color-text;
+    padding: 30px;
+    display: flex;
+    font-size: 36px;
+    font-weight: 900;
+    height: 100px;
+    width: 100%;
 
     &:active{
-        scale: 0.9;
         filter: brightness(0.8);
+        background-color: $color-active;
     }
 }

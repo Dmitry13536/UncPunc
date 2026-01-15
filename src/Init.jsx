@@ -7,7 +7,7 @@ import { MusicProvider } from './MusicContext'
 createRoot(document.getElementById('Init')).render(
   <StrictMode>
     <MusicProvider>
-    <Routes />
+      <Routes />
     </MusicProvider>
   </StrictMode>,
 )
