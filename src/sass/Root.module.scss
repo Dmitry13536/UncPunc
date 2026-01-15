@@ -1,3 +1,6 @@
-.Root {
-    
+@use './Init.scss';
+
+.Root{
+    height: 100vh;
+    display: grid; //начальную менюшку держит
 }

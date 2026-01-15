@@ -1,10 +1,9 @@
 @use './Init.scss' as I;
 
 .Welcome {
-    margin-top: 260px;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
+    align-self: center;
+    justify-self: center;
     width: 280px;
     height: 120px;
     border-radius: 50px;
