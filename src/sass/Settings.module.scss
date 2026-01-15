@@ -11,3 +11,9 @@
     @include I.button-desing($text-size: 30px);
     margin: 20px 0;
 }
+
+.bgSetter {
+    @include I.button-desing;
+    height: 120px;
+    width: 120px;
+}

@@ -8,7 +8,7 @@ var Menu = () => {
     const navigate = useNavigate()
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={sass.Menu}>
+        <div className={sass.Menu}>
             <motion.img animate={{
                 scale: [1.0, 0.85, 0.9, 1.0],
                 // rotate: [0, 10, 0, -10, 0],
@@ -23,8 +23,7 @@ var Menu = () => {
             <div className={sass.buttons}>
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={() => {
-                        navigate('/clicker', { replace: true })
-                        play()
+                        navigate('/clicker/menu', { replace: true })
                     }} className={sass.butt}
                 >
                     Играть
@@ -33,7 +32,6 @@ var Menu = () => {
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={() => {
                         navigate('/settings')    
-                        play()
                     }} className={sass.butt} 
                 >
                     Настройки
@@ -41,13 +39,12 @@ var Menu = () => {
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     onClick={()=>{
                         navigate('/')
-                        play()
                     }} className={sass.butt}
                 >
                     Шабашка
                 </motion.div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 

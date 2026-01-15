@@ -1,5 +1,5 @@
 @use './Init.scss' as I;
 
 .WelcomeBtn {
-    @include I.button-desing
+    @include I.welcome-button-design;
 }

@@ -29,7 +29,7 @@ var Welcome = () => {
             onClick={play} initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} className={sass.WelcomeBtn}
         >
-            <> {'< Play >'} </>
+            К игре
         </motion.button>
     )
 }
