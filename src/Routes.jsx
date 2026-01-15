@@ -6,6 +6,8 @@ import Welcome from "./components/Outlet/Welcome"
 import Settings from "./components/Outlet/Settings"
 import { lazy } from "react"
 var Clicker = lazy(() => import('./components/Outlet/Game/Clicker'))
+import Updates from "./components/Outlet/Game/ClickerOutlet/Updates"
+import GameMenu from "./components/Outlet/Game/ClickerOutlet/GameMenu"
 
 var Routes = () => {
 
@@ -20,16 +22,26 @@ var Routes = () => {
           element: <Welcome />
         },
         {
-          path: '/menu',
+          path: 'menu',
           element: <Menu />
         },
         {
-          path: '/settings',
+          path: 'settings',
           element: <Settings />
         },
         {
-          path: '/Clicker',
-          element: <Clicker />
+          path: 'clicker',
+          element: <Clicker />,
+          children: [
+            {
+              path: 'menu',
+              element: <GameMenu />
+            },
+            {
+              path: 'updates',
+              element: <Updates />
+            }
+          ]
         }
       ]
     },
