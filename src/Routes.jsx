@@ -17,6 +17,17 @@ var Routes = () => {
           element: <Welcome />
         }
       ]
+    },
+    {
+      path: '/menu',
+      element: <Root />,
+      errorElement: <Error />,
+      children: [
+        {
+          index: true,
+          element: <Menu />
+        }
+      ]
     }
   ]
 
