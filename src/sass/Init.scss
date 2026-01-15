@@ -21,3 +21,30 @@ $color-btn: rgb(114, 235, 114);
 $color-border-btn: rgb(99, 148, 98);
 $color-active: rgb(230, 112, 112);
 $color-text: rgb(235, 235, 235);
+
+@mixin button-desing($color: $color-text, $bckgd-color:$color-btn, $text-size: 54px ){
+    background-color: $bckgd-color;
+    border-radius: 50px;
+    border: 1px solid black;
+    max-width: 280px;
+    min-width: 200px;
+    max-height: 120px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    color: $color;
+    font-weight: 900;
+    font-size: 54px;
+    display: flex;
+    padding: 30px 50px;
+    font-size: $text-size;
+
+    &:hover{
+        scale: 1.1;
+    }
+
+    &:active{
+        scale: 0.9;
+        filter: brightness(0.8);
+    }
+}

@@ -1,2 +1,27 @@
-@use './Init.scss' as I
+@use './Init.scss' as I;
 
+.Menu{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around ;
+}
+
+.logo{
+    width: 400px;
+    margin: 30px 0;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+}
+
+.butt{
+    @include I.button-desing($text-size: 30px);
+    margin: 20px 0;
+}

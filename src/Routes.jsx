@@ -3,6 +3,7 @@ import Root from "./components/Root"
 import Error from "./components/fallback/Error"
 import Menu from "./components/Outlet/Menu"
 import Welcome from "./components/Outlet/Welcome"
+import Settings from "./components/Outlet/Settings"
 
 var Routes = () => {
 
@@ -26,6 +27,17 @@ var Routes = () => {
         {
           index: true,
           element: <Menu />
+        }
+      ]
+    },
+    {
+      path: '/settings',
+      element: <Root />,
+      errorElement: <Error />,
+      children: [
+        {
+          index: true,
+          element: <Settings />
         }
       ]
     }

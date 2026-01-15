@@ -1,0 +1,13 @@
+@use '../sass/Init.scss' as I;
+
+.settings{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.butt{
+    @include I.button-desing($text-size: 30px);
+    margin: 20px 0;
+}
