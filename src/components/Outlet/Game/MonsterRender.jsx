@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import sass from '../../../sass/ClickerArea.module.scss'
 import { motion } from 'motion/react';
+import { useMonster } from '../../../context/MonsterContext'; 
 
 
-export default function MonsterRender({ monster }) {
+export default function MonsterRender() {
   const [data, setData] = useState(null); 
   const [loading, setLoading] = useState(true); 
   const [error, setError] = useState(null); 
+  const {HP, maxHp, attackMonster, current} = useMonster();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +17,7 @@ export default function MonsterRender({ monster }) {
       setData(null);
 
       try {
-        const apiUrl = `https://api.github.com/repos/Gaboom63/MSM-APi/contents/data/monsters/Common/${monster}`;
+        const apiUrl = `https://api.github.com/repos/Gaboom63/MSM-APi/contents/data/monsters/Common/${current}`;
 
         const response = await fetch(apiUrl);
 
@@ -41,7 +43,7 @@ export default function MonsterRender({ monster }) {
       }
     };
     fetchData(); 
-  }, [monster]); 
+  }, [current]); 
 
 
   if (loading) {
@@ -61,8 +63,8 @@ export default function MonsterRender({ monster }) {
   return (
     <div className={sass.monster}>
           <p className={sass.monsterName}>{data.name}</p>
-          <p>10/10</p>
-          <motion.img whileTap={{scale: 1.1}} className={sass.monsterImg} src={data.image} alt="" draggable={false} />
+          <p>{HP}/{maxHp}</p>
+          <motion.img onClick={attackMonster} whileTap={{scale: 1.1}} className={sass.monsterImg} src={data.image} alt="" draggable={false} />
         </div>
   )
 }
