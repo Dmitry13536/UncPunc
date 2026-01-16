@@ -21,7 +21,9 @@ var Menu = () => {
             }}
             src={logo} className={sass.logo} />
             <div className={sass.buttons}>
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                <motion.div whileHover={{ scale: 1.2, transition: { delay: 0 } }} whileTap={{ scale: 0.9, transition: { delay: 0 } }} 
+                    initial={{ y: 240, opacity: 0 }} animate={{ y: 0, opacity: 1 }} 
+                    transition={{ delay: 0.25 }}
                     onClick={() => {
                         navigate('/clicker/menu', { replace: true })
                     }} className={sass.butt}
@@ -29,14 +31,18 @@ var Menu = () => {
                     Играть
                 </motion.div>
 
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                <motion.div whileHover={{ scale: 1.2, transition: { delay: 0 } }} whileTap={{ scale: 0.9, transition: { delay: 0 } }} 
+                    initial={{ y: 240, opacity: 0 }} animate={{ y: 0, opacity: 1 }} 
+                    transition={{ delay: 0.5 }}
                     onClick={() => {
                         navigate('/settings')    
                     }} className={sass.butt} 
                 >
                     Настройки
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                <motion.div whileHover={{ scale: 1.2, transition: { delay: 0 } }} whileTap={{ scale: 0.9, transition: { delay: 0 } }} 
+                    initial={{ y: 240, opacity: 0 }} animate={{ y: 0, opacity: 1 }} 
+                    transition={{ delay: 0.75 }}
                     onClick={()=>{
                         navigate('/')
                     }} className={sass.butt}
