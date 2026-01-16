@@ -33,9 +33,14 @@
 }
 
 .BtnLevel {
+    background: url('../IMG//UI/table1.png'); 
+    background-size: auto; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: visible; 
 
     &:active{
         filter: brightness(0.8);
-        background-color: I.$color-active;
+        background: I.$color-active;
     }
 }

@@ -43,7 +43,7 @@ body {
 }
 
 $color-btn: rgb(114, 235, 114);
-$color-border-btn: rgb(99, 148, 98);
+$color-border-btn: rgb(30, 30, 30);
 $color-active: rgb(230, 112, 112);
 $color-text: rgb(235, 235, 235);
 $color-bg: rgb(250, 250, 250);
@@ -60,7 +60,6 @@ button {
 }
 
 @mixin button-desing($color: $color-text, $bckgd-color:$color-btn, $text-size: 54px ){
-    background-color: $bckgd-color;
     border-radius: 50px;
     border: 1px solid $color-border-btn;
     max-width: 280px;
@@ -74,15 +73,19 @@ button {
     font-weight: 900;
     display: flex;
     font-size: $text-size;
+    background: url('../IMG//UI/table1.png'); 
+    background-size: auto; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: visible; 
 
     &:active{
         filter: brightness(0.8);
-        background-color: $color-active;
+        background: $color-active;
     }
 }
 
 @mixin clickerMenu-button-design {
-    background-color: $color-btn;
     border-radius: 50px;
     border: 1px solid $color-border-btn;
     display: flex;
@@ -94,15 +97,24 @@ button {
     font-weight: 900;
     height: 100px;
     width: 100%;
+    background: url('../IMG//UI/table1.png'); 
+    background-size: auto; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: visible; 
 
     &:active{
         filter: brightness(0.8);
-        background-color: $color-active;
+        background: $color-active;
     }
 }
 
 @mixin welcome-button-design {
-    background-color: $color-btn;
+    background: url('../IMG//UI/table1.png'); 
+    background-size: auto; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    overflow: visible; 
     border-radius: 50px;
     border: 1px solid $color-border-btn;
     display: flex;
@@ -119,6 +131,6 @@ button {
 
     &:active{
         filter: brightness(0.8);
-        background-color: $color-active;
+        background: $color-active;
     }
 }

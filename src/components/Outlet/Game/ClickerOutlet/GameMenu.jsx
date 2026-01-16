@@ -23,7 +23,7 @@ var GameMenu = () => {
 
             <Menu.Root>
                 <Menu.Trigger className={sass.Btn} >
-                    <motion.span className={sass.Span} style={{ width: '100%', height: '100%' }} whileHover={{ scale: 1.3 }} > Уровни </motion.span>
+                    <span className={sass.Span} style={{ width: '100%', height: '100%' }} > Уровни </span>
                 </Menu.Trigger>
 
 
