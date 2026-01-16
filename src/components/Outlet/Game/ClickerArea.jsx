@@ -4,19 +4,17 @@ import island from '../../../IMG/PlantIsland.png'
 import { motion, scale } from 'motion/react';
 import MonsterRender from './MonsterRender';
 import { useState } from 'react';
+import { useMonster } from '../../../context/MonsterContext';
 
 
 function ClickerArea() {
 
-    // const list = ['Entbrat.json', 'Noggin.json', 'Mammott.json']
-    // const [monster, setMonster] = useState('Mammott.json');
-    // const NextMonster = () => {
-    //     setMonster(list[0])
-    // }
+    const {level} = useMonster()
 
     return ( 
         <div className={sass.clickerarea}>
-            <MonsterRender monster='Toe%20Jammer.json'/>
+            <p>Level {level}</p>
+            <MonsterRender />
             <img className={sass.island} src={island} draggable={false} />
         </div>
      );
