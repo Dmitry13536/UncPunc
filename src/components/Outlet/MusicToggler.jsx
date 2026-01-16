@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import sass from '../../sass/MusicToggler.module.scss'
 import on from '../../IMG/MusicOn.png';
 import off from '../../IMG/MusicOff.png'
-import { useMusic } from "../../MusicContext";
+import { useMusic } from "../../context/MusicContext";
 
 function MusicToggler() {
 

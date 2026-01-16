@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 import sass from '../../sass/Welcome.module.scss'
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import {useMusic} from '../../MusicContext';
+import {useMusic} from '../../context/MusicContext';
 
 var Welcome = () => {
 

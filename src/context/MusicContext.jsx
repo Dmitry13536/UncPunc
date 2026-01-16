@@ -1,6 +1,7 @@
 import { Children, createContext, useContext, useEffect, useRef, useState } from "react";
-import music from './IMG/menuMusic.mp3'
-import MusicToggler from "./components/Outlet/MusicToggler";
+import music from '../IMG/menuMusic.mp3'
+import music2 from '../IMG/menuMusic2.mp3'
+import MusicToggler from "../components/Outlet/MusicToggler";
 
 const MusicContext = createContext();
 
@@ -32,7 +33,7 @@ export const MusicProvider = ({children}) => {
 
     return <MusicContext.Provider value={{isPlaying, volume, setVolume, togglePlay, playMusic}}>
         {children}
-        <audio src={music} ref={audioRef} loop />
+        <audio src={music2} ref={audioRef} loop />
         <MusicToggler />
     </MusicContext.Provider>
 }

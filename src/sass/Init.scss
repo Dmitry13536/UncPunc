@@ -23,6 +23,7 @@ body {
     .RootMontainBg {
         @include Init;
         background-image: url(../IMG/bgMontain.png);
+          background-size: 100vw
     }
     
     .RootVolcanoBg {

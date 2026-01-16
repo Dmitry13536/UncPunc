@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import sass from '../../sass/Settings.module.scss'
-import { useMusic } from '../../MusicContext';
+import { useMusic } from '../../context/MusicContext';
 import { useNavigate } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { bgAtom } from '../../atoms/bgAtom';

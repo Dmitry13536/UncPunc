@@ -2,10 +2,12 @@
 
 #Clicker {
     display: flex;
+    flex-grow: 1;
     justify-self: center;
-    align-self: center;
-    width: 95%;
+
+    width: 100%;
     height: 90%;
+    align-self: center;
     flex-direction: row;
     gap: 102px;
 
@@ -15,7 +17,7 @@
 
     .Menu{
         background-color: I.$color-bg;
-        width: 55%;
+        width: 60%;
         border: 2px solid I.$color-border;
         border-radius: 48px;
         display: flex;
