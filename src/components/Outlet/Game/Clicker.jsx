@@ -8,9 +8,7 @@ var Clicker = () => {
     return (
         <div id={sass.Clicker} >
 
-            {/* <div className={sass.ClickerArea} > */}
-                <ClickerArea />
-            {/* </div> */}
+            <ClickerArea />
 
             <motion.div className={sass.Menu} 
                initial={{ x: 240, opacity: 0 }} animate={{ x: 0, opacity: 1 }} 

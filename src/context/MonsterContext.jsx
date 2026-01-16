@@ -1,4 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { bgAtom } from '../atoms/bgAtom'
+import { useSetAtom } from "jotai";
 
 const MonsterContext = createContext();
 
@@ -13,12 +15,14 @@ const Monsters={
 
 export const MonsterProvider = ({children}) => {
     const [current, setCurrent] = useState('Mammott.json');
-    const [level, setLevel] = useState(1);
+    const [level, setLevel] = useState(3);
     const [monsterCount, setMonsterCount] = useState(0);
     const [animation, setAnimation] = useState(false)
     const [HP, setHP] = useState(10);
     const [maxHp, setMaxHp] = useState(10)
     const [reward, setReward] = useState(2)
+
+    var bgSet = useSetAtom(bgAtom)
 
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
@@ -38,7 +42,23 @@ export const MonsterProvider = ({children}) => {
 
     useEffect(()=>{
         if (monsterCount >= 10){
-            setLevel(prev=>prev+=1)
+            var func = () => {
+                setLevel(prev=>{ 
+                    var newLevel = prev+=1
+                        if ( newLevel % 100 === 0 ) {
+                            bgSet('RootWinterBg')  
+                        } else if ( newLevel % 80 === 0 ) {
+                            bgSet('RootWaterBg')
+                        } else if ( newLevel % 60 === 0 ) {
+                            bgSet('RootVolcanoBg')
+                        } else if ( newLevel % 40 === 0 ) {
+                            bgSet('RootMontainBg') 
+                        } else if ( newLevel % 20 === 0 ) {
+                            bgSet('RootDefaultBg')
+                        }
+                    return newLevel
+                })}
+                func()
             setMonsterCount(0)
         }
     },[monsterCount])

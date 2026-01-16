@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import sass from '../../../sass/ClickerArea.module.scss'
 import { motion } from 'motion/react';
 import { useMonster } from '../../../context/MonsterContext'; 
-import clsx from 'clsx';
 
 
 export default function MonsterRender() {
