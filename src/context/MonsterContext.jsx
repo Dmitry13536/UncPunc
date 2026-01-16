@@ -3,7 +3,12 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 const MonsterContext = createContext();
 
 const GlobalList={
-    1:['Mammott.json', 'Toe%20Jammer.json', 'Noggin.json', 'Potbelly.json', 'Furcorn.json', 'Oaktopus.json']
+    1:['Mammott.json', 'Toe%20Jammer.json', 'Noggin.json', 'Potbelly.json', 'Furcorn.json', 'Oaktopus.json'],
+    2:['T-rox.json', 'Entbrat.json']
+}
+
+const Monsters={
+    
 }
 
 export const MonsterProvider = ({children}) => {
@@ -13,6 +18,23 @@ export const MonsterProvider = ({children}) => {
     const [animation, setAnimation] = useState(false)
     const [HP, setHP] = useState(10);
     const [maxHp, setMaxHp] = useState(10)
+    const [reward, setReward] = useState(2)
+
+    const MonsterBalance = () => {
+            const levelFactor = Math.pow(1.08, level-1);
+            const killfactor = 1+(monsterCount*0.05)
+            const diffkoef = (levelFactor*killfactor).toFixed(2)
+
+            if(monsterCount == 9){
+                setHP(Math.floor(10 * diffkoef * 1.2*9))
+                setMaxHp(Math.floor(10 * diffkoef * 1.2*9))
+                setReward(Math.floor(2 * diffkoef * 0.8*5))       
+            }else{
+                setHP(Math.floor(10 * diffkoef * 1.2))
+                setMaxHp(Math.floor(10 * diffkoef * 1.2))
+                setReward(Math.floor(2 * diffkoef * 0.8))       
+            }
+    }
 
     useEffect(()=>{
         if (monsterCount >= 10){
@@ -26,12 +48,17 @@ export const MonsterProvider = ({children}) => {
     }, [HP])
 
      const nextMonster = useCallback(() => {
-        const randNum = Math.floor(Math.random() * GlobalList[1].length)
-        setCurrent(GlobalList[1][randNum])
+        let randNum;
+        if(monsterCount == 9){
+            randNum = Math.floor(Math.random() * GlobalList[2].length)
+            setCurrent(GlobalList[2][randNum])
+        }else{
+            randNum = Math.floor(Math.random() * GlobalList[1].length)
+            setCurrent(GlobalList[1][randNum])
+        }
         setMonsterCount(prev=>prev+1)
-        setHP(10)
-        setMaxHp(10)
-    },[])
+        MonsterBalance()
+    },[level, monsterCount])
 
     useEffect(()=>{
         let animTimeout;
@@ -49,7 +76,7 @@ export const MonsterProvider = ({children}) => {
 
     const attackMonster = () => { 
         if (HP == 0) return null       
-        setHP(prev=>prev-1)
+        setHP(prev=>prev-100)
     }
 
     return <MonsterContext.Provider value={{level, HP, maxHp, current, animation, attackMonster}}>
