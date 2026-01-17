@@ -8,7 +8,7 @@ var Fallback = ( { ResetErrorBoundary } ) => {
 
             <img src={Mammott} alt='monsterMammott' style={{ position: 'absolute', top: '45%', left: '60%' }} />
 
-            <div className={bg} >    
+            <div >    
                 <h1>Some error just happened</h1>
                 
                 <motion.button whileTap={{ scale: 0.9 }} onClick={ResetErrorBoundary}

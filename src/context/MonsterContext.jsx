@@ -13,12 +13,13 @@ const Monsters={
 
 export const MonsterProvider = ({children}) => {
     const [current, setCurrent] = useState('Mammott.json');
-    const [level, setLevel] = useState(1);
-    const [monsterCount, setMonsterCount] = useState(0);
-    const [animation, setAnimation] = useState(false)
-    const [HP, setHP] = useState(10);
-    const [maxHp, setMaxHp] = useState(10)
-    const [reward, setReward] = useState(2)
+    const [level, setLevel] = useState(99);
+    const [maxLevel, setMaxLevel] = useState(1);
+    const [monsterCount, setMonsterCount] = useState(0); // количество убитых монстров, чтобв перейти на некст левел(10)
+    const [animation, setAnimation] = useState(false) // анимация смерти
+    const [HP, setHP] = useState(10); // уменьшающееся хп 
+    const [maxHp, setMaxHp] = useState(10) // статичное хп для отрисовки
+    const [reward, setReward] = useState(2) //бабки с монстров
 
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
@@ -39,9 +40,10 @@ export const MonsterProvider = ({children}) => {
     useEffect(()=>{
         if (monsterCount >= 10){
             setLevel(prev => prev + 1)
+            setMaxLevel(level)
             setMonsterCount(0)
             } 
-        },[monsterCount])
+        },[monsterCount, level])
 
     const monsterDefeat = useCallback(() => {
         return HP <= 0
@@ -76,36 +78,16 @@ export const MonsterProvider = ({children}) => {
 
     const attackMonster = () => { 
         if (HP == 0) return null
-
-        // if ( localStorage.getItem('levelNow') % 20 === 0 ) {
-        //         switch ( localStorage.getItem('bg') ) {
-        //             case 'RootDefaultBg':
-        //                 localStorage.setItem('bg', 'RootMontainBg')
-        //                 break
-        //             case 'RootMontainBg':
-        //                 localStorage.setItem('bg', 'RootVolcanoBg')
-        //                 break
-        //             case 'RootVolcanoBg':
-        //                 localStorage.setItem('bg', 'RootWaterBg')
-        //                 break
-        //             case 'RootWaterBg':
-        //                 localStorage.setItem('bg', 'RootWinterBg')
-        //                 break
-        //             case 'RootWinterBg':
-        //                 localStorage.setItem('bg', 'RootDefaultBg')
-        //                 break
-        //         }
-        // }   
-
-        // Димас не знаю почему и как контекст работает, а вмешивать логику на другой 
-        // компонент будет непонятный код,
-        // потому оставил тебе логику 
-        // смены фона после перехода на новый левел - помести его в контекст так, чтобы работало
-
-        setHP(prev=>prev-100)
+        setHP(prev=>prev-10000)
     }
 
-    return <MonsterContext.Provider value={{level, HP, maxHp, current, animation, attackMonster}}>
+    const changeLevel = (level) => {
+        setLevel(level);
+        setMonsterCount(0)
+        nextMonster()
+    }
+
+    return <MonsterContext.Provider value={{level, HP, maxHp, current, animation, attackMonster, changeLevel}}>
         {children}
     </MonsterContext.Provider>
 }

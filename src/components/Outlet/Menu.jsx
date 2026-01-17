@@ -29,7 +29,7 @@ var Menu = () => {
                         duration: 0.5
                     }   
                 }}
-                src={logo} className={sass.logo} style={{ cursor: 'pointer' }}/>
+                src={logo} className={sass.logo} draggable={false}/>
             
             <div className={sass.buttons}>
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
