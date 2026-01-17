@@ -35,6 +35,7 @@ export const MonsterProvider = ({children}) => {
                 setMaxHp(Math.floor(10 * diffkoef * 1.2))
                 setReward(Math.floor(2 * diffkoef * 0.8))       
             }
+            console.log()
     }
 
     useEffect(()=>{
