@@ -1,4 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { bgAtom } from '../atoms/bgAtom'
+import { useSetAtom } from "jotai";
 
 const MonsterContext = createContext();
 
@@ -20,6 +22,8 @@ export const MonsterProvider = ({children}) => {
     const [maxHp, setMaxHp] = useState(10)
     const [reward, setReward] = useState(2)
 
+    var bgSet = useSetAtom(bgAtom)
+
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
             const killfactor = 1+(monsterCount*0.05)
@@ -38,10 +42,10 @@ export const MonsterProvider = ({children}) => {
 
     useEffect(()=>{
         if (monsterCount >= 10){
-            setLevel(prev=>prev+=1)
+            setLevel(prev => prev + 1)
             setMonsterCount(0)
-        }
-    },[monsterCount])
+            } 
+        },[monsterCount])
 
     const monsterDefeat = useCallback(() => {
         return HP <= 0

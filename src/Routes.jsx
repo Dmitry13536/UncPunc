@@ -8,6 +8,7 @@ import { lazy } from "react"
 var Clicker = lazy(() => import('./components/Outlet/Game/Clicker'))
 import Updates from "./components/Outlet/Game/ClickerOutlet/Updates"
 import GameMenu from "./components/Outlet/Game/ClickerOutlet/GameMenu"
+import LevelsList from "./components/Outlet/Game/ClickerOutlet/LevelsList"
 
 var Routes = () => {
 
@@ -40,6 +41,10 @@ var Routes = () => {
             {
               path: 'updates',
               element: <Updates />
+            },
+            {
+              path: 'levels',
+              element: <LevelsList />
             }
           ]
         }

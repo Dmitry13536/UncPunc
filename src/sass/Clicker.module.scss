@@ -29,6 +29,11 @@
         .Btn {
             @include I.clickerMenu-button-design;
         }
+
+        .BtnTriggerMenu {
+            @include I.clickerMenu-button-design;
+            border-radius: 4px;
+        }
     }   
 }
 
@@ -43,4 +48,56 @@
         filter: brightness(0.8);
         background: I.$color-active;
     }
+}
+
+.LevelsList {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .LevelsBox {
+        padding: 24px;
+        display: flex; 
+        flex-direction: row;
+        gap: 12px;
+        flex-wrap: wrap;
+        text-align: center;
+        overflow: auto;
+        max-height: 300px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 1px 1px black;
+
+        .LevelSquad {
+            background: url('../IMG/UI/table1.png');
+            background-size: auto; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            overflow: visible; 
+            width: 24px;
+            height: 20px;
+            padding-top: 4px;
+
+            &:active {
+                background: I.$color-active;
+            }
+        }
+    }
+}
+
+.Link {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    margin-top: auto;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.Title {
+    display: flex;
+    justify-content: center;
 }
