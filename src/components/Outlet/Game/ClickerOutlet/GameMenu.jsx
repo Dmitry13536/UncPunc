@@ -11,11 +11,6 @@ var GameMenu = () => {
     return (
         <>
             <h1 className={sass.Title} > Меню </h1>
-            <motion.button className={sass.Btn} onClick={() => nav('/clicker/updates')}
-                whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.9 }} 
-            >
-                Улучшения
-            </motion.button>
 
             <Link to={'/menu'} className={sass.Link} > Назад </Link>
         </>

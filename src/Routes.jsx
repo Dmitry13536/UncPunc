@@ -6,7 +6,6 @@ import Welcome from "./components/Outlet/Welcome"
 import Settings from "./components/Outlet/Settings"
 import { lazy, Suspense } from "react"
 var Clicker = lazy(() => import('./components/Outlet/Game/Clicker'))
-import Updates from "./components/Outlet/Game/ClickerOutlet/Updates"
 import GameMenu from "./components/Outlet/Game/ClickerOutlet/GameMenu"
 import LevelsList from "./components/Outlet/Game/ClickerOutlet/LevelsList"
 import Loading from "./components/fallback/Loading"
@@ -38,10 +37,6 @@ var Routes = () => {
             {
               path: 'menu',
               element: <GameMenu />
-            },
-            {
-              path: 'updates',
-              element: <Updates />
             },
             {
               path: 'levels',
