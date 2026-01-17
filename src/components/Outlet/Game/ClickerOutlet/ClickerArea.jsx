@@ -10,7 +10,7 @@ function ClickerArea() {
 
     return ( 
         <div className={sass.clickerarea}>
-            <p>Level {level}</p>
+            <p style={{ paddingLeft: '506px', width: '100%' }} >Level {level}</p>
             <MonsterRender />
             <img className={sass.island} src={island} draggable={false} />
         </div>

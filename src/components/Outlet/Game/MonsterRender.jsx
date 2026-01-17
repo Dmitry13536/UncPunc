@@ -62,7 +62,7 @@ export default function MonsterRender() {
   return (
     <div className={sass.monster}>
           <p className={sass.monsterName}>{data.name}</p>
-          <p>{HP}/{maxHp}</p>
+          <p style={{ marginLeft: '380px' }} >{HP}/{maxHp}</p>
           {animation ? 
           <motion.img animate={{rotate:360, scale:0.5, filter:"brightness(0.3)"}} transition={{duration:0.5}} onClick={attackMonster} whileTap={{scale: 1.1}} className={sass.monsterImg} src={data.image} alt="" draggable={false} />
             :

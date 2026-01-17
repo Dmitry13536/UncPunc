@@ -27,6 +27,8 @@
         margin-right: 12px;
         overflow: auto;
         max-height: 100%;
+        max-width: 620px;
+        margin-left: auto;
 
         .Btn {
             @include I.clickerMenu-button-design;
@@ -35,6 +37,8 @@
         .BtnTriggerMenu {
             @include I.clickerMenu-button-design;
             border-radius: 4px;
+            display: flex;
+            
         }
     }   
 }
@@ -44,7 +48,6 @@
     background-size: auto; 
     background-position: center; 
     background-repeat: no-repeat; 
-    overflow: visible; 
 
     &:active{
         filter: brightness(0.8);
@@ -80,6 +83,7 @@
             width: 24px;
             height: 20px;
             padding-top: 4px;
+            border-radius: 4px;
 
             &:active {
                 background: I.$color-active;

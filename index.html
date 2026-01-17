@@ -8,6 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Squada+One&display=swap" rel="stylesheet">
     <title>frontend</title>
+    <script defer > 
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && (e.key === '+' || e.key === '-' || e.key === '=' ) ) {
+          e.preventDefault()
+        }
+      })
+    </script>
   </head>
   <body>
     <div id="Init" ></div>
