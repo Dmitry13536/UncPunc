@@ -6,6 +6,7 @@ import * as Menu from '@radix-ui/react-dropdown-menu'
 var GameMenu = () => {
 
     var nav = useNavigate()
+    var levelsFinished = localStorage.getItem('levelsFinished')
 
     return (
         <>
@@ -32,14 +33,14 @@ var GameMenu = () => {
                         <Menu.Content asChild style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '12px', transformOrigin: 'top' }} >
                             <motion.div initial={{ scaleY: 0 }} animate={{ scaleY: 1 }} exit={{ scaleY: 0 }}>
                                 <Menu.Item asChild>
-                                    <motion.button className={sass.BtnLevel} >
+                                    <motion.button onClick={() => nav('/clicker/levels', { replace: true })} className={sass.BtnLevel} >
                                         Пройденные уровни
                                     </motion.button>
                                 </Menu.Item>
 
-                                <Menu.Item asChild>
+                                <Menu.Item onClick={() => localStorage.setItem('levelNow', levelsFinished)} asChild>
                                     <motion.button className={sass.BtnLevel} >   
-                                        Следующий уровень
+                                        Последний уровень
                                     </motion.button>
                                 </Menu.Item>
                             </motion.div>

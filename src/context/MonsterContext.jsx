@@ -15,7 +15,7 @@ const Monsters={
 
 export const MonsterProvider = ({children}) => {
     const [current, setCurrent] = useState('Mammott.json');
-    const [level, setLevel] = useState(3);
+    const [level, setLevel] = useState(1);
     const [monsterCount, setMonsterCount] = useState(0);
     const [animation, setAnimation] = useState(false)
     const [HP, setHP] = useState(10);
