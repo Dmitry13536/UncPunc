@@ -13,8 +13,8 @@ const Monsters={
 
 export const MonsterProvider = ({children}) => {
     const [current, setCurrent] = useState('Mammott.json');
-    const [level, setLevel] = useState(99);
-    const [maxLevel, setMaxLevel] = useState(1);
+    const [level, setLevel] = useState(200);
+    const [maxLevel, setMaxLevel] = useState(level);
     const [monsterCount, setMonsterCount] = useState(0); // количество убитых монстров, чтобв перейти на некст левел(10)
     const [animation, setAnimation] = useState(false) // анимация смерти
     const [HP, setHP] = useState(10); // уменьшающееся хп 
@@ -87,7 +87,7 @@ export const MonsterProvider = ({children}) => {
         nextMonster()
     }
 
-    return <MonsterContext.Provider value={{level, HP, maxHp, current, animation, attackMonster, changeLevel}}>
+    return <MonsterContext.Provider value={{level, maxLevel, HP, maxHp, current, animation, attackMonster, changeLevel, maxLevel}}>
         {children}
     </MonsterContext.Provider>
 }

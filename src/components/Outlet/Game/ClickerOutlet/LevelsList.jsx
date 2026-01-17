@@ -1,16 +1,19 @@
 import { motion } from "motion/react"
 import sass from '../../../../sass/Clicker.module.scss'
 import { Link } from "react-router-dom"
+import { useMonster } from "../../../../context/MonsterContext"
 
 var LevelsList = () => {
 
-    var levelsFinished = localStorage.getItem('levelsFinished')
+
+    // var levelsFinished = localStorage.getItem('levelsFinished')
+    const {changeLevel, maxLevel} = useMonster()
 
     var levels = () => {
         var elements = []
-        for (let numLevel = 1; numLevel <= levelsFinished; numLevel++ ) {
+        for (let numLevel = 1; numLevel <= maxLevel; numLevel++ ) {
             elements.push(<motion.div className={sass.LevelSquad}  onClick={
-                () => localStorage.setItem('levelNow', numLevel)
+                () => changeLevel(numLevel)
             } whileHover={{ scale: 1.5 }} whileTap={{ scaleX: 1.4, scale: 0.9 }} key={numLevel}> {numLevel} </motion.div>)
         }
         return elements

@@ -2,11 +2,12 @@ import { AnimatePresence, motion } from "motion/react"
 import sass from '../../../../sass/Clicker.module.scss'
 import { Link, useNavigate } from "react-router-dom"
 import * as Menu from '@radix-ui/react-dropdown-menu'
+import { useMonster } from "../../../../context/MonsterContext"
 
 var GameMenu = () => {
 
     var nav = useNavigate()
-    var levelsFinished = localStorage.getItem('levelsFinished')
+    const {maxLevel, changeLevel} = useMonster()
 
     return (
         <>
@@ -32,9 +33,9 @@ var GameMenu = () => {
                                     </motion.button>
                                 </Menu.Item>
 
-                                <Menu.Item onClick={() => localStorage.setItem('levelNow', levelsFinished)} asChild>
+                                <Menu.Item onClick={() => changeLevel(maxLevel)} asChild>
                                     <motion.button className={sass.BtnLevel} >   
-                                        Выбрать {localStorage.getItem('levelNow')} уровень
+                                        Вернутся на последний уровень
                                     </motion.button>
                                 </Menu.Item>
                             </motion.div>
