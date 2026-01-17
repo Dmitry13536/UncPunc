@@ -26,9 +26,9 @@ var LevelsList = () => {
 
     return (
         <div className={sass.LevelsList}>
-            <h1>Пройденные уровни</h1>
+            <h1 className={sass.Title} >Пройденные уровни</h1>
             <LevelSquads />
-            <Link to={'/clicker/menu'} className={sass.Link} > Back </Link>
+            <Link to={'/clicker/menu'} className={sass.Link} > Назад </Link>
         </div>
     )
 }

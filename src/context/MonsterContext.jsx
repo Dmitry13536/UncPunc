@@ -42,26 +42,10 @@ export const MonsterProvider = ({children}) => {
 
     useEffect(()=>{
         if (monsterCount >= 10){
-            var func = () => {
-                setLevel(prev=>{ 
-                    var newLevel = prev+=1
-                        if ( newLevel % 100 === 0 ) {
-                            bgSet('RootWinterBg')  
-                        } else if ( newLevel % 80 === 0 ) {
-                            bgSet('RootWaterBg')
-                        } else if ( newLevel % 60 === 0 ) {
-                            bgSet('RootVolcanoBg')
-                        } else if ( newLevel % 40 === 0 ) {
-                            bgSet('RootMontainBg') 
-                        } else if ( newLevel % 20 === 0 ) {
-                            bgSet('RootDefaultBg')
-                        }
-                    return newLevel
-                })}
-                func()
+            setLevel(prev => prev + 1)
             setMonsterCount(0)
-        }
-    },[monsterCount])
+            } 
+        },[monsterCount])
 
     const monsterDefeat = useCallback(() => {
         return HP <= 0

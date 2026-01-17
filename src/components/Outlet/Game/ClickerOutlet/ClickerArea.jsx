@@ -1,7 +1,7 @@
-import sass from '../../../sass/ClickerArea.module.scss'
-import island from '../../../IMG/PlantIsland.png'
-import MonsterRender from './MonsterRender';
-import { useMonster } from '../../../context/MonsterContext';
+import sass from '../../../../sass/ClickerArea.module.scss'
+import island from '../../../../IMG/PlantIsland.png'
+import MonsterRender from '../MonsterRender';
+import { useMonster } from '../../../../context/MonsterContext';
 
 
 function ClickerArea() {
