@@ -4,11 +4,12 @@ import Error from "./components/fallback/Error"
 import Menu from "./components/Outlet/Menu"
 import Welcome from "./components/Outlet/Welcome"
 import Settings from "./components/Outlet/Settings"
-import { lazy } from "react"
+import { lazy, Suspense } from "react"
 var Clicker = lazy(() => import('./components/Outlet/Game/Clicker'))
 import Updates from "./components/Outlet/Game/ClickerOutlet/Updates"
 import GameMenu from "./components/Outlet/Game/ClickerOutlet/GameMenu"
 import LevelsList from "./components/Outlet/Game/ClickerOutlet/LevelsList"
+import Loading from "./components/fallback/Loading"
 
 var Routes = () => {
 
@@ -32,7 +33,7 @@ var Routes = () => {
         },
         {
           path: 'clicker',
-          element: <Clicker />,
+          element: <Suspense fallback={<Loading />} > <Clicker /> </Suspense>,
           children: [
             {
               path: 'menu',

@@ -43,7 +43,7 @@ var Clicker = () => {
                 ref={coords}
                 onMouseMove={mouseMove}
                 onMouseLeave={mouseLeave}
-                style={{ transformStyle: 'preserve-3d', overflow: 'auto', marginRight: '12px' }}  
+                style={{ transformStyle: 'preserve-3d' }}  
             >
                 <Outlet />
             </motion.div>

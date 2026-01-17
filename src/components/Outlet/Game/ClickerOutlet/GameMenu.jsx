@@ -34,7 +34,7 @@ var GameMenu = () => {
 
                                 <Menu.Item onClick={() => localStorage.setItem('levelNow', levelsFinished)} asChild>
                                     <motion.button className={sass.BtnLevel} >   
-                                        Последний уровень
+                                        Выбрать {localStorage.getItem('levelNow')} уровень
                                     </motion.button>
                                 </Menu.Item>
                             </motion.div>

@@ -1,6 +1,4 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { bgAtom } from '../atoms/bgAtom'
-import { useSetAtom } from "jotai";
 
 const MonsterContext = createContext();
 
@@ -21,8 +19,6 @@ export const MonsterProvider = ({children}) => {
     const [HP, setHP] = useState(10);
     const [maxHp, setMaxHp] = useState(10)
     const [reward, setReward] = useState(2)
-
-    var bgSet = useSetAtom(bgAtom)
 
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
@@ -79,7 +75,33 @@ export const MonsterProvider = ({children}) => {
     }, [HP, nextMonster])
 
     const attackMonster = () => { 
-        if (HP == 0) return null       
+        if (HP == 0) return null
+
+        // if ( localStorage.getItem('levelNow') % 20 === 0 ) {
+        //         switch ( localStorage.getItem('bg') ) {
+        //             case 'RootDefaultBg':
+        //                 localStorage.setItem('bg', 'RootMontainBg')
+        //                 break
+        //             case 'RootMontainBg':
+        //                 localStorage.setItem('bg', 'RootVolcanoBg')
+        //                 break
+        //             case 'RootVolcanoBg':
+        //                 localStorage.setItem('bg', 'RootWaterBg')
+        //                 break
+        //             case 'RootWaterBg':
+        //                 localStorage.setItem('bg', 'RootWinterBg')
+        //                 break
+        //             case 'RootWinterBg':
+        //                 localStorage.setItem('bg', 'RootDefaultBg')
+        //                 break
+        //         }
+        // }   
+
+        // Димас не знаю почему и как контекст работает, а вмешивать логику на другой 
+        // компонент будет непонятный код,
+        // потому оставил тебе логику 
+        // смены фона после перехода на новый левел - помести его в контекст так, чтобы работало
+
         setHP(prev=>prev-100)
     }
 
