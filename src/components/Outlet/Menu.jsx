@@ -9,17 +9,28 @@ var Menu = () => {
 
     return (
         <div className={sass.Menu}>
-            <motion.img animate={{
-                scale: [1.0, 0.85, 0.9, 1.0],
-                // rotate: [0, 10, 0, -10, 0],
-            }}
-            transition={{
-                duration: 5,
-                ease: 'linear',
-                repeat: Infinity, 
-                repeatType: 'loop',
-            }}
-            src={logo} className={sass.logo} />
+            <motion.img initial={{ opacity: 0 }} 
+                animate={{
+                    scale: [1.0, 0.85, 0.9, 1.0],
+                    rotate: 720,
+                    opacity: 1
+                }}
+                transition={{
+                    scale: {
+                        duration: 5,
+                        ease: 'linear',
+                        repeat: Infinity, 
+                        repeatType: 'loop'
+                    },
+                    rotate: {
+                        duration: 0.5
+                    },
+                    opacity: {
+                        duration: 0.5
+                    }   
+                }}
+                src={logo} className={sass.logo} style={{ cursor: 'pointer' }}/>
+            
             <div className={sass.buttons}>
                 <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     initial={{ y: 360, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
