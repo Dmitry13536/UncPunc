@@ -2,7 +2,7 @@ import { motion as m } from "motion/react"
 import sass from '../../../../sass/Clicker.module.scss'
 import { Link, useNavigate } from "react-router-dom"
 import { useMonster } from "../../../../context/MonsterContext"
-import { useUpgrades } from "../../../../context/MonsterContext"
+import { useUpgrades } from "../../../../context/UpgradeContext"
 import { Activity, useState } from "react"
 import * as T from '@radix-ui/react-tooltip'
 

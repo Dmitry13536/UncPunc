@@ -5,13 +5,8 @@ import { useMonster } from '../../../context/MonsterContext';
 
 
 export default function MonsterRender() {
-  // const [data, setData] = useState(null); 
-  // const [loading, setLoading] = useState(true); 
-  // const [error, setError] = useState(null); 
+
   const {HP, maxHp, attackMonster, current, animation, getMonsterById} = useMonster();
-
-  
-
   const [image, setImage] = useState(null);
   const monster = getMonsterById(current);
 
@@ -26,56 +21,6 @@ export default function MonsterRender() {
 
   }, [monster])
 
-
-
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true); 
-  //     setError(null); 
-  //     setData(null);
-
-  //     try {
-  //       const apiUrl = `https://api.github.com/repos/Gaboom63/MSM-APi/contents/data/monsters/Common/${current}`;
-
-  //       const response = await fetch(apiUrl);
-
-  //       if (!response.ok) {
-  //         const errorData = await response.json();
-  //         throw new Error(`Ошибка HTTP: ${response.status} - ${errorData.message || response.statusText}`);
-  //       }
-
-  //       const rawData = await response.json();
-
-  //       if (rawData.content) {
-  //         const decodedContent = atob(rawData.content); 
-  //         setData(JSON.parse(decodedContent));
-  //       } else {
-  //         setData(rawData);
-  //       }
-
-  //     } catch (err) {
-  //       console.error("Ошибка при получении данных из GitHub:", err);
-  //       setError(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   fetchData(); 
-  // }, [current]); 
-
-
-  // if (loading) {
-  //   return <p>Загрузка данных из репозитория...</p>;
-  // }
-
-  // if (error) {
-  //   return <p style={{ color: 'red' }}>Ошибка: {error.message}. Убедитесь, что репозиторий и путь к файлу корректны, и у вас есть доступ.</p>;
-  // }
-
-  // if (!data) {
-  //   return <p>Данные не найдены или пусты.</p>;
-  // }
 
   const monsterVariants = {
   active: { rotate: 360, scale: 0.5, filter: "brightness(0.3)" },

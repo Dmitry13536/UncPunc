@@ -1,36 +1,11 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
-// --->
-    var UpgradesContext = createContext()
-
-    export var UpgradesProvider = ({ children }) => {
-        var [ attackLvl, setAttackLvl ] = useState(1)
-        var [ autoClickLvl, setAutoClickLvl ] = useState(0)
-
-        var upgradeAttack = () => {
-            setAttackLvl(prev => prev + 1)
-        }
-
-        var upgradeAutoClick = () => {
-            setAutoClickLvl(prev => prev + 1)
-        }
-
-        return (
-            <UpgradesContext.Provider value={{ attackLvl, autoClickLvl, upgradeAttack, upgradeAutoClick }}>
-                {children}
-            </UpgradesContext.Provider>
-        )
-    }
-
-    export var useUpgrades = () => useContext(UpgradesContext)
-// <---
-
 const MonsterContext = createContext();
 
-const GlobalList={
-    1:['Mammott.json', 'Toe%20Jammer.json', 'Noggin.json', 'Potbelly.json', 'Furcorn.json', 'Oaktopus.json'],
-    2:['T-rox.json', 'Entbrat.json']
-}
+// const GlobalList={
+//     1:['Mammott.json', 'Toe%20Jammer.json', 'Noggin.json', 'Potbelly.json', 'Furcorn.json', 'Oaktopus.json'],
+//     2:['T-rox.json', 'Entbrat.json']
+// }
 
 const Monsters=[
     {
@@ -95,10 +70,6 @@ const Monsters=[
 ]
 
 export const MonsterProvider = ({children}) => {
-
-    // --->
-    var { attackLvl, autoClickLvl } = useState(UpgradesContext)
-    // <---
 
     const [current, setCurrent] = useState(1);
     const [level, setLevel] = useState(200);
