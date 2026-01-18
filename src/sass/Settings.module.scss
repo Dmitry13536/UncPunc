@@ -17,3 +17,19 @@
     height: 120px;
     width: 120px;
 }
+
+.input {
+    transition: all 300ms ease;
+}
+
+.ChangeMusicBtn {
+    background: url('../IMG//UI/table1.png'); 
+    background-size: auto; 
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    &:active {
+        filter: brightness(0.8);
+        background: I.$color-active;
+    }
+}
