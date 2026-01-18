@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "clsx": "^2.1.1",
     "jotai": "^2.16.2",
     "motion": "^12.26.2",

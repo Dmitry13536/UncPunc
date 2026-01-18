@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import Mammott from '../../IMG/Monsters/Mammott.png'
-import { motion } from "motion/react"
+import { motion as m } from "motion/react"
 
 var Error = () => {
 
@@ -14,9 +14,9 @@ var Error = () => {
             <div className={bg} >    
                 <h1>404 - Not Found</h1>
                 
-                <motion.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.2 }} transition={{ scale: { delay: 0.1 } }}  >
+                <m.button whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.2 }} transition={{ scale: { delay: 0.1 } }}  >
                     <Link to={'/menu'} > To menu </Link>
-                </motion.button>
+                </m.button>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import sass from '../../sass/Menu.module.scss'
 import logo from '../../IMG/Logo.png'
-import { motion } from 'motion/react'
+import { motion as m } from 'motion/react'
 import { useNavigate } from 'react-router-dom'
 
 var Menu = () => {
@@ -9,7 +9,7 @@ var Menu = () => {
 
     return (
         <div className={sass.Menu}>
-            <motion.img initial={{ opacity: 0 }} 
+            <m.img initial={{ opacity: 0 }} 
                 animate={{
                     scale: [1.0, 0.85, 0.9, 1.0],
                     rotate: 720,
@@ -29,10 +29,10 @@ var Menu = () => {
                         duration: 0.5
                     }   
                 }}
-                src={logo} className={sass.logo} draggable={false}/>
+                src={logo} className={sass.logo} draggable={false} />
             
             <div className={sass.buttons}>
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                <m.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     initial={{ y: 360, opacity: 0 }} animate={{ y: 0, opacity: 1 }}
                     transition={{ y: { delay: 0.25 }, opacity: { delay: 0.25 } }} 
                     onClick={() => {
@@ -40,9 +40,9 @@ var Menu = () => {
                     }} className={sass.butt}
                 >
                     Играть
-                </motion.div>
+                </m.div>
 
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                <m.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     initial={{ y: 360, opacity: 0 }} animate={{ y: 0, opacity: 1 }} 
                     transition={{ y: { delay: 0.5 }, opacity: { delay: 0.25 } }} 
                     onClick={() => {
@@ -50,8 +50,8 @@ var Menu = () => {
                     }} className={sass.butt} 
                 >
                     Настройки
-                </motion.div>
-                <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+                </m.div>
+                <m.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
                     initial={{ y: 360, opacity: 0 }} animate={{ y: 0, opacity: 1 }} 
                     transition={{ y: { delay: 0.75 }, opacity: { delay: 0.25 } }} 
                     onClick={()=>{
@@ -59,7 +59,7 @@ var Menu = () => {
                     }} className={sass.butt}
                 >
                     Шабашка
-                </motion.div>
+                </m.div>
             </div>
         </div>
     )
