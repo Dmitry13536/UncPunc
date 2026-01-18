@@ -1,5 +1,6 @@
 import { motion as m } from "motion/react"
 import sass from '../../../../sass/Clicker.module.scss'
+import coin from '../../../../IMG/Coins.png'
 import { Link, useNavigate } from "react-router-dom"
 import { useMonster } from "../../../../context/MonsterContext"
 import { useUpgrades } from "../../../../context/UpgradeContext"
@@ -9,7 +10,8 @@ import * as T from '@radix-ui/react-tooltip'
 var GameMenu = () => {
 
     var nav = useNavigate()
-    const {maxLevel, changeLevel} = useMonster()
+    // const {maxLevel, changeLevel} = useMonster()
+    const {money} = useUpgrades()
 
     var [ isOpen1, setIsOpen1 ] = useState(false)
     var [ isOpen2, setIsOpen2 ] = useState(false)
@@ -74,8 +76,10 @@ var GameMenu = () => {
                     </div>
 
                 </div>
-                
+                <div className={sass.MenuDown}>
                 <Link to={'/menu'} className={sass.Link} > Назад </Link>
+                <p>{money}<img src={coin} /></p>
+                </div>
             </T.Provider>
         </>
     )

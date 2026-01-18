@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { useUpgrades } from "./UpgradeContext";
 
 const MonsterContext = createContext();
 
@@ -15,6 +16,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 39,
         CanBeBoss: false,
+        CanBeCreep:true
     },
     {
         id:2,
@@ -23,6 +25,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },
     {
         id:3,
@@ -31,6 +34,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },{
         id:4,
         name:'Мамунт3',
@@ -38,6 +42,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },{
         id:5,
         name:'Мамыыыунт3',
@@ -45,6 +50,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },{
         id:6,
         name:'Мамулька',
@@ -52,6 +58,7 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },{
         id:7,
         name:'Гнидыч',
@@ -59,13 +66,15 @@ const Monsters=[
         minLevel: 1,
         maxLevel: 9999,
         CanBeBoss: false,
+        CanBeCreep:true
     },{
         id:8,
         name:'Артем',
         image:'Mammott.png',
         minLevel: 1,
         maxLevel: 9999,
-        CanBeBoss: false,
+        CanBeBoss:true,
+        CanBeCreep:false
     }
 ]
 
@@ -74,11 +83,13 @@ export const MonsterProvider = ({children}) => {
     const [current, setCurrent] = useState(1);
     const [level, setLevel] = useState(200);
     const [maxLevel, setMaxLevel] = useState(level);
-    const [monsterCount, setMonsterCount] = useState(0); // количество убитых монстров, чтобв перейти на некст левел(10)
+    const [monsterCount, setMonsterCount] = useState(0);
     const [animation, setAnimation] = useState(false) // анимация смерти
     const [HP, setHP] = useState(10); // уменьшающееся хп 
     const [maxHp, setMaxHp] = useState(10) // статичное хп для отрисовки
     const [reward, setReward] = useState(2) //бабки с монстров
+
+    const {damage, setMoney} = useUpgrades()
 
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
@@ -94,7 +105,6 @@ export const MonsterProvider = ({children}) => {
                 setMaxHp(Math.floor(10 * diffkoef * 1.2))
                 setReward(Math.floor(2 * diffkoef * 0.8))       
             }
-            console.log()
     }
 
     useEffect(()=>{
@@ -106,32 +116,43 @@ export const MonsterProvider = ({children}) => {
         },[monsterCount, level])
 
     const monsterDefeat = useCallback(() => {
-        return HP <= 0
+        return HP <= 0;
     }, [HP])
 
-     const nextMonster = useCallback(() => {
+     const nextMonster = useCallback((currentLevel, monsterCount) => {
         let selectedId = null ;
         let count = 0;
-        for (const m of Monsters){
-            if (level >= m.minLevel && level <= m.maxLevel){
+        if(monsterCount == 9){
+            for (const m of Monsters){
+            if (currentLevel >= m.minLevel && currentLevel <= m.maxLevel && m.CanBeBoss && !m.CanBeCreep){
                 count++;
                 if(Math.random() < 1 / count) selectedId = m.id
             }
-            selectedId = selectedId || Monsters[0].id 
         }
-
+            selectedId = selectedId || Monsters[0].id 
+        }else{
+            for (const m of Monsters){
+            if (currentLevel >= m.minLevel && currentLevel <= m.maxLevel && m.CanBeCreep){
+                count++;
+                if(Math.random() < 1 / count) selectedId = m.id
+            }
+        }
+        selectedId = selectedId || Monsters[0].id 
+        }
         setCurrent(selectedId)
         setMonsterCount(prev=>prev+1)
         MonsterBalance()
-    },[level, monsterCount])
+    })
 
     useEffect(()=>{
         let animTimeout;
         if (HP <= 0){
             setAnimation(true);
             animTimeout = setTimeout(()=>{
-                setAnimation(false)
-                nextMonster();
+                setAnimation(false);
+                setMoney(prev=>prev+reward)
+                nextMonster(level, monsterCount);
+                console.log(monsterCount)
             }, 1000)}
         return () => {
       if (animTimeout) { 
@@ -141,17 +162,19 @@ export const MonsterProvider = ({children}) => {
 
     const attackMonster = () => { 
         if (HP == 0) return null
-        setHP(prev=>prev-10000000000)
+        setHP(prev=>prev-damage)
     }
 
     const changeLevel = (level) => {
         setLevel(level);
         setMonsterCount(0)
-        nextMonster()
     }
 
+    useEffect(()=>{
+        nextMonster(level, monsterCount)
+    }, [level])
+
     const getMonsterById = () => {
-        console.log(current)
         return Monsters.find(m => m.id === current)
     }
 

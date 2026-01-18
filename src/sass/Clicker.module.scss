@@ -40,6 +40,64 @@
     }   
 }
 
+@mixin MenuPlusMinus {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 2px 2px 1px 1px black;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid black;
+
+    .Button {
+        background: url('../IMG//UI/table1.png'); 
+        background-size: auto; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+
+        &:active {
+            filter: brightness(0.8);
+            background: I.$color-active;
+        }
+    }
+}
+
+
+.UpgradesMenu {
+    height: 190px;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 16px;
+
+    .MenuPlusMinus1 {
+        @include MenuPlusMinus;
+    }
+    
+    .MenuPlusMinus2 {
+        @include MenuPlusMinus;
+
+    }
+}
+
+.MenuDown{
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+
+    & p{
+        margin: 0;
+    }
+
+    & img{
+        width: 16px;
+        transform: scaleX(-1);
+    }
+}
+
 .BtnsLevel{
     position: relative;
     z-index: 3;
@@ -100,8 +158,7 @@
 .Link {
     color: black;
     text-decoration: none;
-    display: flex;
-    margin-top: auto;
+    max-height: min-content;
 
     &:hover {
         text-decoration: underline;
@@ -151,44 +208,4 @@
     position: absolute;
     width: 400px;
     z-index: 1;
-}
-
-@mixin MenuPlusMinus {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    box-shadow: 2px 2px 1px 1px black;
-    border-radius: 8px;
-    padding: 20px;
-    border: 1px solid black;
-
-    .Button {
-        background: url('../IMG//UI/table1.png'); 
-        background-size: auto; 
-        background-position: center; 
-        background-repeat: no-repeat; 
-
-        &:active {
-            filter: brightness(0.8);
-            background: I.$color-active;
-        }
-    }
-}
-
-.UpgradesMenu {
-    height: 190px;
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
-    gap: 16px;
-
-    .MenuPlusMinus1 {
-        @include MenuPlusMinus;
-    }
-    
-    .MenuPlusMinus2 {
-        @include MenuPlusMinus;
-
-    }
 }

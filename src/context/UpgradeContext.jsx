@@ -1,10 +1,12 @@
-import { createContext, useState } from "react"
+import { createContext, useContext, useState } from "react"
 
     var UpgradesContext = createContext()
 
     export var UpgradesProvider = ({ children }) => {
         var [ attackLvl, setAttackLvl ] = useState(1)
         var [ autoClickLvl, setAutoClickLvl ] = useState(0)
+        const [money, setMoney] = useState(0);
+        const [damage, setDamage] = useState(10000000000);
         // var { attackLvl, autoClickLvl } = useState(UpgradesContext)
 
         var upgradeAttack = () => {
@@ -16,7 +18,7 @@ import { createContext, useState } from "react"
         }
 
         return (
-            <UpgradesContext.Provider value={{ attackLvl, autoClickLvl, upgradeAttack, upgradeAutoClick }}>
+            <UpgradesContext.Provider value={{ money, damage, attackLvl, autoClickLvl, setMoney, upgradeAttack, upgradeAutoClick }}>
                 {children}
             </UpgradesContext.Provider>
         )
