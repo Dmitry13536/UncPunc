@@ -122,7 +122,7 @@ export const MonsterProvider = ({children}) => {
      const nextMonster = useCallback((currentLevel, monsterCount) => {
         let selectedId = null ;
         let count = 0;
-        if(monsterCount == 9){
+        if(monsterCount >= 8 ){
             for (const m of Monsters){
             if (currentLevel >= m.minLevel && currentLevel <= m.maxLevel && m.CanBeBoss && !m.CanBeCreep){
                 count++;
