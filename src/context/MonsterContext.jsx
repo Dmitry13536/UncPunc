@@ -7,12 +7,70 @@ const GlobalList={
     2:['T-rox.json', 'Entbrat.json']
 }
 
-const Monsters={
-    
-}
+const Monsters=[
+    {
+        id:1,
+        name:'Мамунт',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 39,
+        CanBeBoss: false,
+    },
+    {
+        id:2,
+        name:'Мамунт1',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },
+    {
+        id:3,
+        name:'Мамунт2',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },{
+        id:4,
+        name:'Мамунт3',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },{
+        id:5,
+        name:'Мамыыыунт3',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },{
+        id:6,
+        name:'Мамулька',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },{
+        id:7,
+        name:'Гнидыч',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    },{
+        id:8,
+        name:'Артем',
+        image:'Mammott.png',
+        minLevel: 1,
+        maxLevel: 9999,
+        CanBeBoss: false,
+    }
+]
 
 export const MonsterProvider = ({children}) => {
-    const [current, setCurrent] = useState('Mammott.json');
+    const [current, setCurrent] = useState(1);
     const [level, setLevel] = useState(200);
     const [maxLevel, setMaxLevel] = useState(level);
     const [monsterCount, setMonsterCount] = useState(0); // количество убитых монстров, чтобв перейти на некст левел(10)
@@ -51,14 +109,17 @@ export const MonsterProvider = ({children}) => {
     }, [HP])
 
      const nextMonster = useCallback(() => {
-        let randNum;
-        if(monsterCount == 9){
-            randNum = Math.floor(Math.random() * GlobalList[2].length)
-            setCurrent(GlobalList[2][randNum])
-        }else{
-            randNum = Math.floor(Math.random() * GlobalList[1].length)
-            setCurrent(GlobalList[1][randNum])
+        let selectedId = null ;
+        let count = 0;
+        for (const m of Monsters){
+            if (level >= m.minLevel && level <= m.maxLevel){
+                count++;
+                if(Math.random() < 1 / count) selectedId = m.id
+            }
+            selectedId = selectedId || Monsters[0].id 
         }
+
+        setCurrent(selectedId)
         setMonsterCount(prev=>prev+1)
         MonsterBalance()
     },[level, monsterCount])
@@ -79,7 +140,7 @@ export const MonsterProvider = ({children}) => {
 
     const attackMonster = () => { 
         if (HP == 0) return null
-        setHP(prev=>prev-10000)
+        setHP(prev=>prev-10000000000)
     }
 
     const changeLevel = (level) => {
@@ -88,7 +149,12 @@ export const MonsterProvider = ({children}) => {
         nextMonster()
     }
 
-    return <MonsterContext.Provider value={{level, maxLevel, HP, maxHp, current, animation, attackMonster, changeLevel, maxLevel}}>
+    const getMonsterById = () => {
+        console.log(current)
+        return Monsters.find(m => m.id === current)
+    }
+
+    return <MonsterContext.Provider value={{level, maxLevel, HP, maxHp, current, animation, attackMonster, changeLevel, getMonsterById, maxLevel}}>
         {children}
     </MonsterContext.Provider>
 }
