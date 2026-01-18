@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import sass from '../../../sass/ClickerArea.module.scss'
-import { motion } from 'motion/react';
+import sass from '../../../sass/Clicker.module.scss'
+import { motion as m } from 'motion/react';
 import { useMonster } from '../../../context/MonsterContext'; 
 
 
@@ -58,16 +58,37 @@ export default function MonsterRender() {
     return <p>Данные не найдены или пусты.</p>;
   }
 
+  const monsterVariants = {
+  active: { rotate: 360, scale: 0.5, filter: "brightness(0.3)" },
+  pressed: { scale: 1.1 }
+  
+};
+
 
   return (
     <div className={sass.monster}>
           <p className={sass.monsterName}>{data.name}</p>
-          <p style={{ marginLeft: '380px' }} >{HP}/{maxHp}</p>
+          <p>{HP}/{maxHp}</p>
           {animation ? 
-          <motion.img animate={{rotate:360, scale:0.5, filter:"brightness(0.3)"}} transition={{duration:0.5}} onClick={attackMonster} whileTap={{scale: 1.1}} className={sass.monsterImg} src={data.image} alt="" draggable={false} />
+          <m.img 
+            variants={monsterVariants}
+            animate="active"
+            whileTap="pressed"
+            transition={{ duration: 0.5 }}
+            onClick={attackMonster} 
+            className={sass.monsterImg} 
+            src={data.image} 
+            draggable={false} 
+          />
             :
-          <motion.img onClick={attackMonster} whileTap={{scale: 1.1}} transition={{default:{duration: 0.1}, rotate:{duration:0}}} className={sass.monsterImg} src={data.image} alt="" draggable={false} />
-        }
+          <m.img 
+            onClick={attackMonster}  
+            whileTap={{scale: 1.1}} 
+            transition={{default:{duration: 0.1}, rotate:{duration:0}}} 
+            className={sass.monsterImg} 
+            src={data.image}  
+            draggable={false} />
+          }
         </div>
   )
 }

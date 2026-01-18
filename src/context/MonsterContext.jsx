@@ -41,7 +41,7 @@ export const MonsterProvider = ({children}) => {
     useEffect(()=>{
         if (monsterCount >= 10){
             setLevel(prev => prev + 1)
-            setMaxLevel(level)
+            if (maxLevel<level) setMaxLevel(level);
             setMonsterCount(0)
             } 
         },[monsterCount, level])

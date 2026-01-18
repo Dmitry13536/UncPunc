@@ -42,23 +42,7 @@ var Clicker = () => {
     return (
         <div id={sass.Clicker} >
 
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '30%' }} >
                 <ClickerArea />
-
-                <div style={{ display: 'flex', flexDirection: 'row', zIndex: '1000', position: 'relative', 
-                        paddingTop: '200px', paddingLeft: '100px', width: '100%', gap: '12px' }} 
-                >
-                    <motion.button onClick={() => nav('/clicker/levels', { replace: true })} 
-                        className={sass.BtnLevel} style={{ width: '200px' }}
-                    >
-                        Пройденные уровни
-                    </motion.button>
-
-                    <motion.button className={sass.BtnLevel} style={{ width: '200px' }} > 
-                        Вернутся на последний уровень
-                    </motion.button>
-                </div>
-            </div>
 
             <motion.div
                 className={sass.Menu} 
