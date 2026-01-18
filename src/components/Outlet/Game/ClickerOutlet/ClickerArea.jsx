@@ -7,7 +7,7 @@ import Cold from '../../../../IMG/ColdIsland.png'
 import MonsterRender from '../MonsterRender';
 import { useMonster } from '../../../../context/MonsterContext';
 import { useEffect, useState } from 'react'
-import { motion } from 'motion/react'
+import { motion as m } from 'motion/react'
 import { useNavigate } from 'react-router-dom'
 
 function ClickerArea() {
@@ -30,14 +30,14 @@ function ClickerArea() {
             <MonsterRender />
             <img className={sass.island} src={island} draggable={false} />
             <div className={sass.BtnsLevel}>
-                    <motion.button onClick={() => nav('/clicker/levels', { replace: true })} 
+                    <m.button onClick={() => nav('/clicker/levels', { replace: true })} 
                         className={sass.BtnLevel}>
                         Пройденные уровни
-                    </motion.button>
+                    </m.button>
 
-                    <motion.button className={sass.BtnLevel} onClick={() => changeLevel(maxLevel)}> 
+                    <m.button className={sass.BtnLevel} onClick={() => changeLevel(maxLevel)}> 
                         Вернутся на последний уровень
-                    </motion.button>
+                    </m.button>
                 </div>
         </div>
 

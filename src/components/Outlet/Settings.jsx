@@ -1,7 +1,7 @@
 import sass from '../../sass/Settings.module.scss'
 import { useMusic } from '../../context/MusicContext';
 import { useNavigate } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion as m } from 'motion/react';
 
 function Settings() {
     const {volume, setVolume} = useMusic()
@@ -14,8 +14,24 @@ function Settings() {
 
     return ( 
         <div className={sass.settings}>
-            <input type="range" min='0' max='1' step='0.05' value={volume} onChange={handleVolumeChange} />
-            <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} className={sass.butt} onClick={()=>navigate('/menu')}>Шабашка</motion.div>
+
+            <input 
+              type="range" 
+              min='0' 
+              max='1' 
+              step='0.05' 
+              value={volume} 
+              onChange={handleVolumeChange} />
+
+            <m.div 
+              whileHover={{ scale: 1.2 }} 
+              whileTap={{ scale: 0.9 }} 
+              className={sass.butt} 
+              onClick={()=>navigate('/menu')}
+            >
+              Шабашка
+            </m.div>
+            
         </div>
      );
 }

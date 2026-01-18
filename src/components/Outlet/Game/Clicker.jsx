@@ -42,7 +42,7 @@ var Clicker = () => {
     return (
         <div id={sass.Clicker} >
 
-                <ClickerArea />
+            <ClickerArea />
 
             <motion.div
                 className={sass.Menu} 

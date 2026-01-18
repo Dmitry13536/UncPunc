@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion as m } from "motion/react";
 import sass from '../../sass/MusicToggler.module.scss'
 import on from '../../IMG/MusicOn.png';
 import off from '../../IMG/MusicOff.png'
@@ -10,7 +10,23 @@ function MusicToggler() {
 
     return (
         <>
-            {isPlaying ? <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={off} onClick={togglePlay} /> : <motion.img className={sass.musictoggler} whileHover={{ scale: 1.3 }} whileTap={{ scale: 1.8 }} src={on} onClick={togglePlay} /> }
+            {
+                isPlaying ? 
+                
+                    <m.img 
+                        className={sass.musictoggler} 
+                        whileHover={{ scale: 1.3 }} 
+                        whileTap={{ scale: 1.8 }} 
+                        src={off} onClick={togglePlay} /> 
+
+                    : 
+
+                    <m.img 
+                        className={sass.musictoggler} 
+                        whileHover={{ scale: 1.3 }} 
+                        whileTap={{ scale: 1.8 }} src={on} 
+                        onClick={togglePlay} /> 
+            }
         </>
      );
 }

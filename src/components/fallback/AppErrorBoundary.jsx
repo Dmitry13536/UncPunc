@@ -1,6 +1,6 @@
 import { ErrorBoundary } from 'react-error-boundary'
 import Mammott from '../../IMG/Monsters/Mammott.png'
-import { motion } from "motion/react"
+import { motion as m } from "motion/react"
 
 var Fallback = ( { ResetErrorBoundary } ) => {
     return (
@@ -11,10 +11,10 @@ var Fallback = ( { ResetErrorBoundary } ) => {
             <div >    
                 <h1>Some error just happened</h1>
                 
-                <motion.button whileTap={{ scale: 0.9 }} onClick={ResetErrorBoundary}
+                <m.button whileTap={{ scale: 0.9 }} onClick={ResetErrorBoundary}
                     whileHover={{ scale: 1.2 }} transition={{ scale: { delay: 0.1 } }}>
                     Reset
-                </motion.button>
+                </m.button>
             </div>
         </div>
     )

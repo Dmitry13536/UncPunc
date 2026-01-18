@@ -1,4 +1,4 @@
-import { motion } from "motion/react"
+import { motion as m } from "motion/react"
 import sass from '../../sass/Welcome.module.scss'
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
@@ -25,12 +25,12 @@ var Welcome = () => {
     }
 
     return (
-        <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
+        <m.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }} 
             onClick={play} initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} className={sass.WelcomeBtn}
         >
             К игре
-        </motion.button>
+        </m.button>
     )
 }
 

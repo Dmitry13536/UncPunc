@@ -1,4 +1,4 @@
-import { motion } from "motion/react"
+import { motion as m } from "motion/react"
 import sass from '../../../../sass/Clicker.module.scss'
 import { Link } from "react-router-dom"
 import { useMonster } from "../../../../context/MonsterContext"
@@ -12,9 +12,12 @@ var LevelsList = () => {
     var levels = () => {
         var elements = []
         for (let numLevel = 1; numLevel <= maxLevel; numLevel++ ) {
-            elements.push(<motion.div className={sass.LevelSquad}  onClick={
+            elements.push(<m.div className={sass.LevelSquad}  onClick={
                 () => changeLevel(numLevel)
-            } whileHover={{ scale: 1.5 }} whileTap={{ scaleX: 1.4, scale: 0.9 }} key={numLevel}> {numLevel} </motion.div>)
+            } whileHover={{ scale: 1.5 }} whileTap={{ scaleX: 1.4, scale: 0.9 }} key={numLevel}
+            > 
+                {numLevel} 
+            </m.div>)
         }
         return elements
     }
