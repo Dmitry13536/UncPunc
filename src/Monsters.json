@@ -1,0 +1,263 @@
+ {
+    "Monsters":[
+    {
+        "id":1,
+        "name":"Барабашка",
+        "image":"Noggin.png",
+        "minLevel": 1,
+        "maxLevel": 39,
+        "CanBeCreep": false,
+        "CanBeBoss":true
+    },
+    {
+        "id":2,
+        "name":"Горшечник",
+        "image":"Potbelly.png",
+        "minLevel": 1,
+        "maxLevel": 19,
+        "CanBeCreep": false,
+        "CanBeBoss":true
+    },
+    {
+        "id":3,
+        "name":"Мамунт",
+        "image":"Mammott.png",
+        "minLevel": 1,
+        "maxLevel": 39,
+        "CanBeCreep": false,
+        "CanBeBoss":true
+    },{
+        "id":4,
+        "name":"Капитошкин",
+        "image":"Toe Jammer.png",
+        "minLevel": 1,
+        "maxLevel": 59,
+        "CanBeCreep": false,
+        "CanBeBoss":true
+    },{
+        "id":5,
+        "name":"Птичка невеличка",
+        "image":"Tweedle.png",
+        "minLevel": 20,
+        "maxLevel": 59,
+        "CanBeCreep": false,
+        "CanBeBoss":true
+    },{
+        "id":6,
+        "name":"Шарики",
+        "image":"Thumpies.png",
+        "minLevel": 60,
+        "maxLevel": 100,
+        "CanBeCreep": true,
+        "CanBeBoss":true
+    },{
+        "id":7,
+        "name":"Шубаруба",
+        "image":"Maw.png",
+        "minLevel": 10,
+        "maxLevel": 59,
+        "CanBeCreep": true,
+        "CanBeBoss":true
+    },{
+        "id":8,
+        "name":"Артем",
+        "image":"Mammott.png",
+        "minLevel": 1,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":9,
+        "name":"Смычерог",
+        "image":"Bowgart.png",
+        "minLevel": 60,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":10,
+        "name":"Клавмный",
+        "image":"Clamble.png",
+        "minLevel": 60,
+        "maxLevel": 79,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":11,
+        "name":"Стучалкин",
+        "image":"Congle.png",
+        "minLevel": 1,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":12,
+        "name":"Крутилкин",
+        "image":"Cybop.png",
+        "minLevel": 40,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":13,
+        "name":"Чмошка",
+        "image":"Dandidoo.png",
+        "minLevel": 5,
+        "maxLevel": 19,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":14,
+        "name":"Диджей Зимлан",
+        "image":"Deedge.png",
+        "minLevel": 20,
+        "maxLevel": 39,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":15,
+        "name":"Пузан",
+        "image":"Drumpler.png",
+        "minLevel": 30,
+        "maxLevel": 90,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":16,
+        "name":"Волосатый кустарь",
+        "image":"Entbrat.png",
+        "minLevel": 5,
+        "maxLevel": 19,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":17,
+        "name":"Кусачкин",
+        "image":"Furcorn.png",
+        "minLevel": 1,
+        "maxLevel": 19,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":18,
+        "name":"Жаба каменяба",
+        "image":"Fwog.png",
+        "minLevel": 60,
+        "maxLevel": 79,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":19,
+        "name":"Странный тип",
+        "image":"Mimic.png",
+        "minLevel": 78,
+        "maxLevel": 9999,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":20,
+        "name":"Восьмидуб",
+        "image":"Oaktopus.png",
+        "minLevel": 1,
+        "maxLevel": 19,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":21,
+        "name":"Пинго",
+        "image":"Pango.png",
+        "minLevel": 20,
+        "maxLevel": 59,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":22,
+        "name":"Черталетка",
+        "image":"PomPom.png",
+        "minLevel": 60,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":23,
+        "name":"Акулстул",
+        "image":"Pummel.png",
+        "minLevel": 60,
+        "maxLevel": 79,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":24,
+        "name":"Каменный",
+        "image":"Quarrister.png",
+        "minLevel": 80,
+        "maxLevel": 9999,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":25,
+        "name":"Петупиони",
+        "image":"Quibble.png",
+        "minLevel": 40,
+        "maxLevel": 79,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":26,
+        "name":"Зелынка",
+        "image":"Reedling.png",
+        "minLevel": 10,
+        "maxLevel": 9999,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":27,
+        "name":"Рифайщик",
+        "image":"Riff.png",
+        "minLevel": 40,
+        "maxLevel": 59,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":28,
+        "name":"Чучма",
+        "image":"Scups.png",
+        "minLevel": 40,
+        "maxLevel": 79,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":29,
+        "name":"Чудище",
+        "image":"Spunge.png",
+        "minLevel": 20,
+        "maxLevel": 99,
+        "CanBeCreep":true,
+        "CanBeBoss":true
+    },{
+        "id":30,
+        "name":"Ебанубюк",
+        "image":"Shellbeat.png",
+        "minLevel": 60,
+        "maxLevel": 79,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    },{
+        "id":31,
+        "name":"Леший",
+        "image":"Shrubb.png",
+        "minLevel": 1,
+        "maxLevel": 19,
+        "CanBeCreep":true,
+        "CanBeBoss":false
+    },{
+        "id":32,
+        "name":"Камнезавр",
+        "image":"T-Rox.png",
+        "minLevel": 1,
+        "maxLevel": 9999,
+        "CanBeCreep":false,
+        "CanBeBoss":true
+    }
+]
+ }

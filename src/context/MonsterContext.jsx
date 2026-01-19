@@ -1,82 +1,10 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { useUpgrades } from "./UpgradeContext";
+import MonstersObj from '../Monsters.json';
 
 const MonsterContext = createContext();
 
-// const GlobalList={
-//     1:['Mammott.json', 'Toe%20Jammer.json', 'Noggin.json', 'Potbelly.json', 'Furcorn.json', 'Oaktopus.json'],
-//     2:['T-rox.json', 'Entbrat.json']
-// }
-
-const Monsters=[
-    {
-        id:1,
-        name:'Мамунт',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 39,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },
-    {
-        id:2,
-        name:'Мамунт1',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },
-    {
-        id:3,
-        name:'Мамунт2',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },{
-        id:4,
-        name:'Мамунт3',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },{
-        id:5,
-        name:'Мамыыыунт3',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },{
-        id:6,
-        name:'Мамулька',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },{
-        id:7,
-        name:'Гнидыч',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss: false,
-        CanBeCreep:true
-    },{
-        id:8,
-        name:'Артем',
-        image:'Mammott.png',
-        minLevel: 1,
-        maxLevel: 9999,
-        CanBeBoss:true,
-        CanBeCreep:false
-    }
-]
+const Monsters = MonstersObj.Monsters; 
 
 export const MonsterProvider = ({children}) => {
 
@@ -152,7 +80,6 @@ export const MonsterProvider = ({children}) => {
                 setAnimation(false);
                 setMoney(prev=>prev+reward)
                 nextMonster(level, monsterCount);
-                console.log(monsterCount)
             }, 1000)}
         return () => {
       if (animTimeout) { 
