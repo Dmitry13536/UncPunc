@@ -68,7 +68,7 @@ button:disabled {
 
 
 .UpgradesMenu {
-    height: 190px;
+    height: 194px;
     display: flex;
     flex-direction: row;
     gap: 16px;
@@ -112,6 +112,8 @@ button:disabled {
     background-size: auto; 
     background-position: center; 
     background-repeat: no-repeat; 
+    max-width: 120px;
+    font-size: 10px;
 
     &:active{
         filter: brightness(0.8);

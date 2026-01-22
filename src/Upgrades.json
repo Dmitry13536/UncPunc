@@ -87,7 +87,7 @@
                 "id":10,
                 "title":"Бессконечная мощь",
                 "level": 1,
-                "damage":10000000,
+                "damage":1000000,
                 "cost": 1000000000,
                 "levelForUnlock":200,
                 "multiplierCost": 1.1,
