@@ -1,5 +1,9 @@
 @use './Init.scss' as I;
 
+button:disabled {
+    filter: brightness(0.8);
+}
+
 #Clicker {
     display: flex;
     flex-grow: 1;
@@ -67,8 +71,6 @@
     height: 190px;
     display: flex;
     flex-direction: row;
-    margin-left: auto;
-    margin-right: auto;
     gap: 16px;
 
     .MenuPlusMinus1 {
@@ -208,4 +210,24 @@
     position: absolute;
     width: 400px;
     z-index: 1;
+}
+
+.upgradelist{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: auto;
+    height: 500px;
+    width: 100%;
+    gap: 10px;
+}
+
+.upgrade{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    padding: 10px;
+     
+    & button{
+        margin: auto;
+    }
 }

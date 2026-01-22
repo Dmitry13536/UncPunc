@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import { useUpgrades } from "./UpgradeContext";
 import MonstersObj from '../Monsters.json';
 
@@ -9,7 +9,7 @@ const Monsters = MonstersObj.Monsters;
 export const MonsterProvider = ({children}) => {
 
     const [current, setCurrent] = useState(1);
-    const [level, setLevel] = useState(200);
+    const [level, setLevel] = useState(150);
     const [maxLevel, setMaxLevel] = useState(level);
     const [monsterCount, setMonsterCount] = useState(0);
     const [animation, setAnimation] = useState(false) // анимация смерти
@@ -17,14 +17,14 @@ export const MonsterProvider = ({children}) => {
     const [maxHp, setMaxHp] = useState(10) // статичное хп для отрисовки
     const [reward, setReward] = useState(2) //бабки с монстров
 
-    const {damage, setMoney} = useUpgrades()
+    const {damage, setMoney, setGunCount} = useUpgrades()
 
     const MonsterBalance = () => {
             const levelFactor = Math.pow(1.08, level-1);
             const killfactor = 1+(monsterCount*0.05)
             const diffkoef = (levelFactor*killfactor).toFixed(2)
 
-            if(monsterCount == 9){
+            if(monsterCount == 8){
                 setHP(Math.floor(10 * diffkoef * 1.2*9))
                 setMaxHp(Math.floor(10 * diffkoef * 1.2*9))
                 setReward(Math.floor(2 * diffkoef * 0.8*5))       
@@ -88,7 +88,7 @@ export const MonsterProvider = ({children}) => {
     }, [HP, nextMonster])
 
     const attackMonster = () => { 
-        if (HP == 0) return null
+        if (HP <= 0) return null
         setHP(prev=>prev-damage)
     }
 

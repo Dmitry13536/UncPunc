@@ -6,12 +6,13 @@ import { useMonster } from "../../../../context/MonsterContext"
 import { useUpgrades } from "../../../../context/UpgradeContext"
 import { Activity, useState } from "react"
 import * as T from '@radix-ui/react-tooltip'
+import Upgrades from "./Upgrades"
 
 var GameMenu = () => {
 
     var nav = useNavigate()
     // const {maxLevel, changeLevel} = useMonster()
-    const {money} = useUpgrades()
+    const {money, formatNumber} = useUpgrades()
 
     var [ isOpen1, setIsOpen1 ] = useState(false)
     var [ isOpen2, setIsOpen2 ] = useState(false)
@@ -23,7 +24,9 @@ var GameMenu = () => {
 
                 <div className={sass.UpgradesMenu} >
 
-                    <div className={sass.MenuPlusMinus1} >
+                    <Upgrades />
+
+                    {/* <div className={sass.MenuPlusMinus1} >
                         <button className={sass.Button} onClick={() => setIsOpen1(prev => !prev)} >Клик</button>
                         <Activity className={sass.MenuPlusMinus} mode={ isOpen1 ? 'visible' : 'hidden' }>
 
@@ -48,9 +51,9 @@ var GameMenu = () => {
                             </T.Root>
             
                         </Activity>
-                    </div>
+                    </div> */}
 
-                    <div className={sass.MenuPlusMinus2} >
+                    {/* <div className={sass.MenuPlusMinus2} >
                         <button className={sass.Button} onClick={() => setIsOpen2(prev => !prev)} >Авто</button>
                         <Activity mode={ isOpen2 ? 'visible' : 'hidden' }>
                             <T.Root>
@@ -73,12 +76,13 @@ var GameMenu = () => {
                                 </T.Content>
                             </T.Root>
                         </Activity>
-                    </div>
+                    </div> */}
+
 
                 </div>
                 <div className={sass.MenuDown}>
                 <Link to={'/menu'} className={sass.Link} > Назад </Link>
-                <p>{money}<img src={coin} /></p>
+                <p>{formatNumber(money)}<img src={coin} /></p>
                 </div>
             </T.Provider>
         </>

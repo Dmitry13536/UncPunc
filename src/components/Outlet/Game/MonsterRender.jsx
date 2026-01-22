@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import sass from '../../../sass/Clicker.module.scss'
 import { motion as m } from 'motion/react';
 import { useMonster } from '../../../context/MonsterContext'; 
+import { useUpgrades } from '../../../context/UpgradeContext';
 
 
 export default function MonsterRender() {
 
   const {HP, maxHp, attackMonster, current, animation, getMonsterById} = useMonster();
+  const {formatNumber} = useUpgrades()
   const [image, setImage] = useState(null);
   const monster = getMonsterById(current);
 
@@ -32,7 +34,7 @@ export default function MonsterRender() {
   return (
     <div className={sass.monster}>
           <p className={sass.monsterName}>{monster.name}</p>
-          <p>{HP}/{maxHp}</p>
+          <p>{formatNumber(HP)}/{formatNumber(maxHp)}</p>
           {animation ? 
           <m.img 
             variants={monsterVariants}

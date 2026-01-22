@@ -1,0 +1,97 @@
+{
+    "upgrades":[
+            {
+                "id":1,
+                "title":"Дротики",
+                "level": 1,
+                "damage":2,
+                "cost": 5,
+                "levelForUnlock":0,
+                "multiplierCost": 1.7,
+                "multiplierDamage": 1.4
+            },
+            {
+                "id":2,
+                "title":"Банан пистолет",
+                "level": 1,
+                "damage":5,
+                "cost": 50,
+                "levelForUnlock":4,
+                "multiplierCost": 1.68,
+                "multiplierDamage": 1.4
+            },{
+                "id":3,
+                "title":"Солевое ружьё",
+                "level": 1,
+                "damage":16,
+                "cost": 100,
+                "levelForUnlock":9,
+                "multiplierCost": 1.7,
+                "multiplierDamage": 1.4
+            },{
+                "id":4,
+                "title":"Спинеры убиЙцы",
+                "level": 1,
+                "damage":30,
+                "cost": 300,
+                "levelForUnlock":19,
+                "multiplierCost": 1.7,
+                "multiplierDamage": 1.4
+            },{
+                "id":5,
+                "title":"Чемодан автомат",
+                "level": 1,
+                "damage":175,
+                "cost": 2000,
+                "levelForUnlock":39,
+                "multiplierCost": 1.7,
+                "multiplierDamage": 1.4
+            },{
+                "id":6,
+                "title":"Лоу кик",
+                "level": 1,
+                "damage":1500,
+                "cost": 14000,
+                "levelForUnlock":59,
+                "multiplierCost": 1.7,
+                "multiplierDamage": 1.4
+            },{
+                "id":7,
+                "title":"Индийский стритфуд",
+                "level": 1,
+                "damage": 3000,
+                "cost": 40000,
+                "levelForUnlock":79,
+                "multiplierCost": 1.6,
+                "multiplierDamage": 1.4
+            },{
+                "id":8,
+                "title":"Грозовой шептун",
+                "level": 1,
+                "damage":8000,
+                "cost": 200000,
+                "levelForUnlock":100,
+                "multiplierCost": 1.4,
+                "multiplierDamage": 1.3
+            },
+            {
+                "id":9,
+                "title":"Лук Чингизхана",
+                "level": 1,
+                "damage":100000,
+                "cost": 10000000,
+                "levelForUnlock":150,
+                "multiplierCost": 1.4,
+                "multiplierDamage": 1.4
+            },{
+                "id":10,
+                "title":"Бессконечная мощь",
+                "level": 1,
+                "damage":10000000,
+                "cost": 1000000000,
+                "levelForUnlock":200,
+                "multiplierCost": 1.1,
+                "multiplierDamage": 1.1
+            }
+        ]
+}
